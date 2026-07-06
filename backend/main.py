@@ -1,0 +1,60 @@
+from pathlib import Path
+from uuid import uuid4
+
+from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI(title="GovDocs-AI API")
+
+UPLOAD_DIR = Path("uploads")
+UPLOAD_DIR.mkdir(exist_ok=True)
+
+ALLOWED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg"}
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # tighten later when frontend exists
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.get("/")
+def health_check():
+    return {"status": "ok", "message": "GovDocs-AI backend is running"}
+
+
+@app.post("/upload")
+async def upload_document(file: UploadFile = File(...)):
+    original_filename = file.filename or ""
+
+    file_extension = Path(original_filename).suffix.lower()
+
+    if file_extension not in ALLOWED_EXTENSIONS:
+        raise HTTPException(
+            status_code=400,
+            detail="Unsupported file type. Please upload a PDF, PNG, JPG, or JPEG file.",
+        )
+
+    safe_filename = f"{uuid4()}{file_extension}"
+    file_path = UPLOAD_DIR / safe_filename
+
+    file_bytes = await file.read()
+
+    if not file_bytes:
+        raise HTTPException(status_code=400, detail="Uploaded file is empty.")
+
+    with open(file_path, "wb") as buffer:
+        buffer.write(file_bytes)
+
+    return {
+        "success": True,
+        "message": "File uploaded successfully.",
+        "original_filename": original_filename,
+        "stored_filename": safe_filename,
+        "file_path": str(file_path),
+        "content_type": file.content_type,
+        "size_bytes": len(file_bytes),
+    }
