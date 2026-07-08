@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 from pathlib import Path
 from uuid import uuid4
 
@@ -23,13 +24,15 @@ app.add_middleware(
 
 @app.get("/")
 def health_check():
-    return {"status": "ok", "message": "GovDocs-AI backend is running"}
+    return {
+        "status": "ok",
+        "message": "GovDocs-AI backend is running"
+    }
 
 
 @app.post("/upload")
 async def upload_document(file: UploadFile = File(...)):
     original_filename = file.filename or ""
-
     file_extension = Path(original_filename).suffix.lower()
 
     if file_extension not in ALLOWED_EXTENSIONS:
@@ -38,13 +41,15 @@ async def upload_document(file: UploadFile = File(...)):
             detail="Unsupported file type. Please upload a PDF, PNG, JPG, or JPEG file.",
         )
 
-    safe_filename = f"{uuid4()}{file_extension}"
-    file_path = UPLOAD_DIR / safe_filename
-
     file_bytes = await file.read()
 
     if not file_bytes:
         raise HTTPException(status_code=400, detail="Uploaded file is empty.")
+
+    document_id = str(uuid4())
+    stored_filename = f"{document_id}{file_extension}"
+    file_path = UPLOAD_DIR / stored_filename
+    uploaded_at = datetime.now(timezone.utc).isoformat()
 
     with open(file_path, "wb") as buffer:
         buffer.write(file_bytes)
@@ -52,9 +57,13 @@ async def upload_document(file: UploadFile = File(...)):
     return {
         "success": True,
         "message": "File uploaded successfully.",
+        "document_id": document_id,
         "original_filename": original_filename,
-        "stored_filename": safe_filename,
+        "stored_filename": stored_filename,
+        "file_extension": file_extension,
         "file_path": str(file_path),
         "content_type": file.content_type,
         "size_bytes": len(file_bytes),
+        "uploaded_at": uploaded_at,
+        "status": "uploaded"
     }
