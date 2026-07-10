@@ -5,6 +5,8 @@ from uuid import uuid4
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
+from ocr import extract_text_from_pdf
+
 app = FastAPI(title="GovDocs-AI API")
 
 UPLOAD_DIR = Path("uploads")
@@ -15,7 +17,7 @@ ALLOWED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg"}
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # tighten later when frontend exists
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -54,9 +56,14 @@ async def upload_document(file: UploadFile = File(...)):
     with open(file_path, "wb") as buffer:
         buffer.write(file_bytes)
 
+    extracted_text = ""
+
+    if file_extension == ".pdf":
+        extracted_text = extract_text_from_pdf(str(file_path))
+
     return {
         "success": True,
-        "message": "File uploaded successfully.",
+        "message": "File uploaded and processed successfully.",
         "document_id": document_id,
         "original_filename": original_filename,
         "stored_filename": stored_filename,
@@ -65,5 +72,7 @@ async def upload_document(file: UploadFile = File(...)):
         "content_type": file.content_type,
         "size_bytes": len(file_bytes),
         "uploaded_at": uploaded_at,
-        "status": "uploaded"
+        "status": "ocr_complete" if extracted_text else "uploaded",
+        "extracted_text_preview": extracted_text[:1000],
+        "extracted_text_length": len(extracted_text)
     }
