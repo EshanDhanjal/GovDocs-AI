@@ -6,6 +6,7 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
 from ocr import extract_text_from_pdf
+from services.classifier import classify_document
 
 app = FastAPI(title="GovDocs-AI API")
 
@@ -61,6 +62,8 @@ async def upload_document(file: UploadFile = File(...)):
     if file_extension == ".pdf":
         extracted_text = extract_text_from_pdf(str(file_path))
 
+    classification = classify_document(extracted_text) if extracted_text else None
+
     return {
         "success": True,
         "message": "File uploaded and processed successfully.",
@@ -72,7 +75,8 @@ async def upload_document(file: UploadFile = File(...)):
         "content_type": file.content_type,
         "size_bytes": len(file_bytes),
         "uploaded_at": uploaded_at,
-        "status": "ocr_complete" if extracted_text else "uploaded",
+        "status": "classified" if classification else "uploaded",
         "extracted_text_preview": extracted_text[:1000],
-        "extracted_text_length": len(extracted_text)
+        "extracted_text_length": len(extracted_text),
+        "classification": classification
     }
