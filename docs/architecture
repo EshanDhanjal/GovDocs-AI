@@ -1,0 +1,95 @@
+# System Architecture
+
+## High-Level Pipeline
+
+User uploads PDF/image
+→ File validation
+→ OCR extraction
+→ Document classification
+→ Field extraction
+→ Official-source retrieval
+→ AI explanation
+→ Structured JSON output
+→ Frontend result page
+
+## Components
+
+### 1. File Upload
+
+Accepts:
+
+- PDF
+- PNG
+- JPG/JPEG
+
+The upload system should reject unsupported files and large files.
+
+### 2. OCR Engine
+
+Extracts text from uploaded documents.
+
+Planned OCR options:
+
+- Google Document AI
+- AWS Textract
+- Tesseract for local prototype
+
+OCR output should include:
+
+- Raw extracted text
+- Confidence score
+- Page number
+- Optional bounding boxes
+
+### 3. Document Classifier
+
+Classifies the uploaded document as:
+
+- I-20
+- I-94
+- I-797
+- I-797C
+- EAD / I-766
+- Unknown
+
+If confidence is low, the system should say it is unsure.
+
+### 4. Field Extractor
+
+Extracts structured information such as:
+
+- Document type
+- Issuing agency
+- SEVIS ID
+- I-94 number
+- USCIS receipt number
+- Validity dates
+- Program dates
+- Employment authorization dates
+- Required actions
+
+### 5. Retrieval System
+
+Retrieves official guidance from trusted sources:
+
+- USCIS
+- DHS Study in the States
+- CBP
+- ICE/SEVP
+
+The AI should not rely only on memory.
+
+### 6. LLM Explanation Layer
+
+Generates:
+
+- Plain-English summary
+- Important dates
+- Required actions
+- Warnings
+- Official resource links
+- Questions the user might ask
+
+### 7. Structured Output
+
+The final response should be JSON so the frontend can render cards, checklists, timelines, and warnings.

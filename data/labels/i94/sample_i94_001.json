@@ -1,0 +1,34 @@
+{
+  "file_name": "sample_i94_001.pdf",
+  "document_type": "I-94",
+  "document_subtype": "Arrival / Departure Record",
+  "issuing_agency": "U.S. Customs and Border Protection (CBP)",
+  "intended_user": "Nonimmigrant Visitor",
+  "plain_english_purpose": "Records a person's legal admission into the United States and documents their immigration status.",
+  "important_dates": [
+    "Admission Date",
+    "Admit Until Date"
+  ],
+  "identifiers": [
+    "I-94 Number",
+    "Passport Number"
+  ],
+  "status_or_result": "Lawful Admission Record",
+  "required_actions": [
+    "Verify admission class",
+    "Verify admit-until date or D/S",
+    "Download and keep a copy"
+  ],
+  "common_confusions": [
+    "D/S does not mean a calendar date.",
+    "Visa expiration is different from I-94 validity.",
+    "The I-94 determines authorized stay."
+  ],
+  "official_sources_needed": [
+    "CBP I-94 Website"
+  ],
+  "risk_level": "high",
+  "should_recommend_dso": true,
+  "should_recommend_attorney": false,
+  "notes_for_app_design": "Highlight admission class, admit-until field, and explain D/S if present."
+}

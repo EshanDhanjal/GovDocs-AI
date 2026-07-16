@@ -1,0 +1,26 @@
+# Data Checklist
+
+This checklist tracks sample documents and labels for the MVP dataset.
+
+## Folder Structure
+
+```text
+data/
+├── raw/
+│   ├── i20/
+│   ├── i94/
+│   ├── i797/
+│   │   ├── receipt/
+│   │   ├── approval/
+│   │   ├── biometrics/
+│   │   └── rfe/
+│   └── ead/
+└── labels/
+    ├── i20/
+    ├── i94/
+    ├── i797/
+    │   ├── receipt/
+    │   ├── approval/
+    │   ├── biometrics/
+    │   └── rfe/
+    └── ead/

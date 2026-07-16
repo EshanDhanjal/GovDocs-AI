@@ -1,0 +1,37 @@
+{
+  "file_name": "sample_i20_001.pdf",
+  "document_type": "I-20",
+  "document_subtype": "Certificate of Eligibility for Nonimmigrant Student Status",
+  "issuing_agency": "Department of Homeland Security (DHS) / SEVP",
+  "intended_user": "F-1 International Student",
+  "plain_english_purpose": "Confirms a student's admission to an SEVP-certified school and eligibility to apply for an F-1 student visa and maintain student status.",
+  "important_dates": [
+    "Program Start Date",
+    "Program End Date",
+    "Travel Signature Date"
+  ],
+  "identifiers": [
+    "SEVIS ID",
+    "School Code"
+  ],
+  "status_or_result": "Student Eligibility Issued",
+  "required_actions": [
+    "Verify personal information",
+    "Sign the I-20",
+    "Keep the document with your passport",
+    "Request a travel signature before international travel if required"
+  ],
+  "common_confusions": [
+    "I-20 expiration is not the same as visa expiration.",
+    "Travel signatures expire.",
+    "SEVIS ID is different from a USCIS receipt number."
+  ],
+  "official_sources_needed": [
+    "Study in the States",
+    "SEVP"
+  ],
+  "risk_level": "medium",
+  "should_recommend_dso": true,
+  "should_recommend_attorney": false,
+  "notes_for_app_design": "Highlight SEVIS ID, school name, program dates, financial information, and travel endorsement."
+}

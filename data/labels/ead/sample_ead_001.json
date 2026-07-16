@@ -1,0 +1,35 @@
+{
+  "file_name": "sample_ead_001.pdf",
+  "document_type": "I-766",
+  "document_subtype": "Employment Authorization Document (EAD)",
+  "issuing_agency": "U.S. Citizenship and Immigration Services (USCIS)",
+  "intended_user": "Authorized Noncitizen Worker",
+  "plain_english_purpose": "Serves as proof that the holder is authorized to work in the United States for a specific period.",
+  "important_dates": [
+    "Card Valid From",
+    "Card Expiration Date"
+  ],
+  "identifiers": [
+    "USCIS Number",
+    "Card Number",
+    "Category"
+  ],
+  "status_or_result": "Employment Authorized",
+  "required_actions": [
+    "Verify information on the card",
+    "Monitor expiration date",
+    "Renew before expiration if eligible"
+  ],
+  "common_confusions": [
+    "EAD approval notice is different from the physical card.",
+    "Work authorization begins on the valid-from date.",
+    "The category code determines eligibility."
+  ],
+  "official_sources_needed": [
+    "USCIS Employment Authorization"
+  ],
+  "risk_level": "medium",
+  "should_recommend_dso": true,
+  "should_recommend_attorney": false,
+  "notes_for_app_design": "Highlight category code, expiration date, USCIS number, and explain employment eligibility."
+}

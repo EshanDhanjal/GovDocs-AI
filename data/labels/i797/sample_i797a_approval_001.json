@@ -1,0 +1,35 @@
+{
+  "file_name": "sample_i797a_approval_001.pdf",
+  "document_type": "I-797",
+  "document_subtype": "I-797A Approval Notice",
+  "issuing_agency": "U.S. Citizenship and Immigration Services (USCIS)",
+  "intended_user": "USCIS Applicant",
+  "plain_english_purpose": "Notifies the applicant that USCIS has approved an immigration petition or application.",
+  "important_dates": [
+    "Approval Date",
+    "Valid From",
+    "Valid Until"
+  ],
+  "identifiers": [
+    "Receipt Number",
+    "I-94 Number"
+  ],
+  "status_or_result": "Application Approved",
+  "required_actions": [
+    "Review approval information",
+    "Keep the notice with immigration records",
+    "Follow any instructions included in the notice"
+  ],
+  "common_confusions": [
+    "Approval notice is different from a visa.",
+    "Approval notice alone may not authorize travel.",
+    "Approval does not replace other immigration documents."
+  ],
+  "official_sources_needed": [
+    "USCIS"
+  ],
+  "risk_level": "low",
+  "should_recommend_dso": false,
+  "should_recommend_attorney": false,
+  "notes_for_app_design": "Highlight validity dates, approval type, receipt number, and any attached I-94."
+}

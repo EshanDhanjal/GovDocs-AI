@@ -1,0 +1,33 @@
+{
+  "file_name": "sample_i797c_receipt_001.pdf",
+  "document_type": "I-797",
+  "document_subtype": "I-797C Receipt Notice",
+  "issuing_agency": "U.S. Citizenship and Immigration Services (USCIS)",
+  "intended_user": "USCIS Applicant",
+  "plain_english_purpose": "Confirms that USCIS received an immigration application or petition.",
+  "important_dates": [
+    "Notice Date",
+    "Receipt Date"
+  ],
+  "identifiers": [
+    "Receipt Number"
+  ],
+  "status_or_result": "Application Received",
+  "required_actions": [
+    "Save the receipt number",
+    "Track the case online",
+    "Keep this notice for your records"
+  ],
+  "common_confusions": [
+    "Receipt notice is not an approval.",
+    "Receipt notice does not grant immigration status.",
+    "Receipt number can be used to check case status."
+  ],
+  "official_sources_needed": [
+    "USCIS Case Status"
+  ],
+  "risk_level": "medium",
+  "should_recommend_dso": false,
+  "should_recommend_attorney": false,
+  "notes_for_app_design": "Highlight receipt number, notice date, and clearly explain that this is not an approval."
+}
