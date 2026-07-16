@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from ocr import extract_text_from_pdf
 from services.classifier import classify_document
+from services.llm_classifier import classify_document_with_llm
 
 app = FastAPI(title="GovDocs-AI API")
 
@@ -62,7 +63,13 @@ async def upload_document(file: UploadFile = File(...)):
     if file_extension == ".pdf":
         extracted_text = extract_text_from_pdf(str(file_path))
 
-    classification = classify_document(extracted_text) if extracted_text else None
+    classification = None
+
+    if extracted_text:
+        classification = classify_document_with_llm(extracted_text)
+
+    if classification.get("document_type") == "UNKNOWN":
+        classification = classify_document(extracted_text)
 
     return {
         "success": True,
