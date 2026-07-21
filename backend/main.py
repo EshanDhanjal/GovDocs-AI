@@ -9,6 +9,7 @@ from ocr import extract_text_from_pdf
 from services.classifier import classify_document
 from services.llm_classifier import classify_document_with_llm
 from services.llm_extractor import extract_fields_with_llm
+from services.llm_summarizer import summarize_document_with_llm
 
 app = FastAPI(title="GovDocs-AI API")
 
@@ -113,7 +114,29 @@ async def upload_document(file: UploadFile = File(...)):
                 "details": str(exc),
             }
 
-    if extracted_fields and "error" not in extracted_fields:
+    summary = None
+
+    if (
+        extracted_text
+        and classification
+        and extracted_fields
+        and "error" not in extracted_fields
+    ):
+        try:
+            summary = summarize_document_with_llm(
+                extracted_text,
+                classification,
+                extracted_fields,
+            )
+        except Exception as exc:
+            summary = {
+                "error": "Document summarization failed.",
+                "details": str(exc),
+            }
+
+    if summary and "error" not in summary:
+        processing_status = "summarized"
+    elif extracted_fields and "error" not in extracted_fields:
         processing_status = "extracted"
     elif classification:
         processing_status = "classified"
@@ -138,4 +161,5 @@ async def upload_document(file: UploadFile = File(...)):
         "extracted_text_length": len(extracted_text),
         "classification": classification,
         "extracted_fields": extracted_fields,
+        "summary": summary,
     }
