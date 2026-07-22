@@ -1,0 +1,72 @@
+TITLE: Arrival/Departure Forms: I-94 and I-94W
+SOURCE: U.S. Customs and Border Protection (CBP)
+URL: https://www.cbp.gov/travel/international-visitors/i-94
+DOCUMENT TYPES: I-94, I-94W
+TOPICS: arrival records, departure records, electronic I-94, travel, CBP, ESTA, Visa Waiver Program, employment authorization, immigration status
+RETRIEVED: 2026-07-21
+
+CONTENT:
+Foreign visitors to the United States generally no longer need to complete paper Form I-94 (Arrival/Departure Record) or Form I-94W (Nonimmigrant Visa Waiver Arrival/Departure Record). U.S. Customs and Border Protection (CBP) now automatically collects arrival and departure information from travelers' electronic travel records.
+
+Travelers who need to prove their lawful visitor status to employers, educational institutions, or government agencies can access their arrival and departure records online through the CBP I-94 website or the CBP Link mobile application.
+
+Electronic I-94 at Land Borders
+- Travelers entering the United States by land are generally issued electronic I-94 records instead of paper forms.
+- CBP encourages travelers who require an I-94 to apply in advance using:
+  - The CBP I-94 website.
+  - The CBP Link mobile application.
+- Travelers using the Visa Waiver Program (VWP) must obtain an approved Electronic System for Travel Authorization (ESTA) before arriving at a U.S. land border.
+- VWP travelers are encouraged to obtain their I-94 through the website or mobile app before travel.
+
+Obtaining a Paper Copy
+- Travelers who need a paper copy of their I-94 may print it themselves using the "Get Most Recent I-94" feature on the I-94 website or through the CBP Link mobile app.
+- Travelers may also request a paper Form I-94 during the inspection process. Such requests are generally handled in a secondary inspection setting.
+
+Using the I-94 for Status Verification
+- Travelers who need to verify their immigration status or employment authorization should obtain their I-94 number from the CBP I-94 website or the CBP Link mobile application.
+
+Departure Procedures
+Paper I-94 Holders
+- Travelers issued a paper Form I-94 should surrender it when departing the United States to:
+  - The commercial carrier,
+  - The Canada Border Services Agency (CBSA), or
+  - U.S. Customs and Border Protection (CBP).
+
+Electronic I-94 Holders
+- Travelers departing by air or sea generally have their departure recorded automatically through carrier manifest information or CBP systems.
+- Travelers departing by land may not always have their departure recorded automatically.
+
+Land Departure Recommendations
+If a traveler:
+- Received an electronic I-94,
+- Departs the United States by land,
+- Is not a resident of Canada or Mexico, and
+- Does not re-enter the United States before the admission expiration date,
+
+CBP recommends keeping evidence of departure, which may include:
+- Passport entry stamps.
+- Transportation tickets.
+- Pay stubs.
+- Receipts.
+- Other documentation showing departure from the United States.
+
+Travelers may request:
+- An entry stamp from the Canada Border Services Agency (CBSA) when entering Canada.
+- An entry stamp from Mexico's Instituto Nacional de Migración (INM) when entering Mexico.
+
+Benefits of Electronic Processing
+The electronic I-94 system:
+- Streamlines the admission process.
+- Improves security.
+- Reduces administrative costs.
+- Saves the federal government an estimated $15.5 million annually.
+
+I-94 Number Format
+Beginning in May 2019:
+- I-94 numbers became alphanumeric.
+- Each I-94 number contains 11 characters.
+- Format:
+  - Characters 1–9: digits.
+  - Character 10: letter.
+  - Character 11: digit.
+- Previously issued numeric-only I-94 records remain valid until their listed Admit Until Date or the expiration shown on the official I-94 website.

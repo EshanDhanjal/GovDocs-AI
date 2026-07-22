@@ -1,0 +1,36 @@
+TITLE: Form I-797: Types and Functions
+SOURCE: U.S. Citizenship and Immigration Services (USCIS)
+URL: https://www.uscis.gov/forms/filing-guidance/form-i-797-types-and-functions
+DOCUMENT TYPES: I-797, I-797A, I-797B, I-797C, I-797D, I-797E, I-797F
+TOPICS: notices of action, receipt notices, approvals, requests for evidence, biometrics, interviews, transportation letter, immigration benefits
+RETRIEVED: 2026-07-21
+
+CONTENT:
+USCIS uses several versions of Form I-797 to communicate with applicants and petitioners or to convey an immigration benefit. Form I-797 is not a form that applicants complete or submit.
+
+Form I-797, Notice of Action
+- Issued to communicate the receipt or approval of an application or petition.
+
+Form I-797A, Notice of Action
+- Issued to an applicant as a replacement Form I-94.
+
+Form I-797B, Notice of Action
+- Issued for the approval of an alien worker petition.
+
+Form I-797C, Notice of Action
+- Issued to communicate:
+  - Receipt or rejection of applications or petitions.
+  - Transfer of files.
+  - Fingerprint (biometric) appointments.
+  - Interview appointments and rescheduled appointments.
+  - Additional actions.
+  - Reopening of cases.
+
+Form I-797D
+- Accompanies benefit cards.
+
+Form I-797E, Notice of Action
+- Issued to request additional evidence.
+
+Form I-797F, Transportation Letter
+- Issued overseas to allow applicants to travel.

@@ -1,0 +1,121 @@
+TITLE: I-94 Automation Fact Sheet
+SOURCE: U.S. Customs and Border Protection (CBP)
+URL: https://www.cbp.gov/travel/international-visitors/i-94
+DOCUMENT TYPES: I-94
+TOPICS: I-94 automation, arrival/departure record, electronic I-94, CBP One, travel history, immigration status, employment authorization
+RETRIEVED: 2026-07-21
+
+CONTENT:
+Overview
+
+To increase efficiency, reduce operating costs, and streamline the admissions process, U.S. Customs and Border Protection (CBP) has automated Form I-94 at air, sea, and land ports of entry. Paper Forms I-94 are generally no longer issued upon arrival except in limited circumstances.
+
+Travelers who require proof of their admission record, immigration status, alien registration, or employment authorization can retrieve and print their electronic I-94 from the CBP I-94 website or the CBP One mobile application.
+
+Frequently Asked Questions
+
+What is Form I-94?
+
+Form I-94 is the U.S. Department of Homeland Security (DHS) arrival/departure record. It is issued electronically to travelers who:
+- Are admitted to the United States.
+- Adjust status while in the United States.
+- Extend their immigration status.
+- Require an official record of admission.
+
+Travelers must depart the United States on or before the departure date shown on their I-94.
+
+How does I-94 automation affect travelers?
+
+The automation of Form I-94 does not change a traveler's eligibility to enter the United States.
+
+CBP continues to create an I-94 record for travelers who require one, but it is generated electronically instead of on paper.
+
+If a paper copy is needed, travelers may print it from:
+- The CBP I-94 website.
+- The CBP One mobile application.
+
+Will travelers receive proof of admission?
+
+Yes.
+
+Travelers receive an electronic I-94 record that can be retrieved online. CBP may also place an admission stamp in the travel document showing:
+- Date of admission.
+- Class of admission.
+- Admit-until date.
+
+How are departures recorded?
+
+Travelers generally do not need to take additional steps when leaving the United States.
+
+Air or Sea Departures
+- CBP records departures electronically using carrier manifest information.
+
+Land Departures
+- A departure is recorded if the traveler departs by land and re-enters the United States before the I-94 expires.
+- Travelers who are not residents of Canada or Mexico and who leave by land without re-entering before expiration should keep evidence of departure.
+
+Examples of acceptable evidence include:
+- Passport entry stamps.
+- Transportation tickets.
+- Pay stubs.
+- Receipts.
+- Other documentation proving departure.
+
+Travelers entering Canada may request an entry stamp from the Canada Border Services Agency (CBSA). Travelers entering Mexico may request an entry stamp from the Instituto Nacional de Migración (INM).
+
+Travelers issued a paper Form I-94 should surrender it to:
+- Their commercial carrier.
+- CBSA when entering Canada by land.
+- A CBP officer or designated drop box at the port of departure.
+
+Travelers who still possess a paper I-94 after departure should follow CBP instructions for returning it to ensure their departure is properly recorded.
+
+Will CBP still issue paper Forms I-94?
+
+Generally, no.
+
+CBP primarily issues electronic I-94 records.
+
+Paper Forms I-94 may still be issued for certain categories of travelers, including:
+- Some asylees.
+- Some parolees.
+- Other situations where CBP determines a paper form is appropriate.
+
+Refugee I-94 records issued after September 7, 2015, are processed electronically and can be retrieved online.
+
+If a traveler cannot locate their electronic I-94, they should:
+- Contact CBP through the CBP Help Center.
+- Visit a local CBP Deferred Inspection Site or Port of Entry.
+
+What is the CBP I-94 website?
+
+The CBP I-94 website allows travelers to:
+- Retrieve and print their electronic I-94.
+- Obtain proof of lawful visitor status.
+- View a limited history of U.S. arrivals and departures.
+- Check travel compliance.
+
+What is the CBP One mobile application?
+
+CBP One is an official mobile application that provides access to multiple CBP services, including:
+- Retrieving electronic I-94 records.
+- Accessing I-94-related services available through CBP.
+
+What if a traveler was admitted incorrectly?
+
+Travelers who believe their admission information is incorrect should first verify their I-94 record through:
+- The CBP I-94 website.
+- The CBP One mobile application.
+
+If the information remains incorrect, they should:
+- Visit a CBP Deferred Inspection Site or Port of Entry to request a correction.
+
+If an incorrect Form I-94 was issued by U.S. Citizenship and Immigration Services (USCIS), the traveler should refer to Form I-102 or contact the nearest USCIS office.
+
+Key Benefits of I-94 Automation
+- Streamlines the admissions process.
+- Reduces paper processing.
+- Lowers operating costs.
+- Provides online access to admission records.
+- Supports verification of immigration status and employment authorization.
+- Allows travelers to retrieve travel history electronically.

@@ -1,0 +1,99 @@
+TITLE: Students and the Form I-20
+SOURCE: Study in the States (U.S. Department of Homeland Security)
+URL: https://studyinthestates.dhs.gov/students-and-the-form-i-20
+DOCUMENT TYPES: Form I-20
+TOPICS: F-1 students, M-1 students, SEVIS, DSO, student visa, travel, change of status, student benefits
+RETRIEVED: 2026-07-21
+
+CONTENT:
+Overview
+
+All F and M students studying in the United States must have a Form I-20, "Certificate of Eligibility for Nonimmigrant Student Status."
+
+Once accepted into a Student and Exchange Visitor Program (SEVP)-certified school, students receive a Form I-20 from their Designated School Official (DSO).
+
+Students must also obtain a separate Form I-20 for each eligible dependent who will accompany them to the United States.
+
+The type of Form I-20 issued determines:
+- The type of student visa (F-1 or M-1) that may be obtained.
+- The immigration status the student must maintain while in the United States.
+
+The student and the DSO must sign the Form I-20. Students under 18 years of age must also have a parent or legal guardian sign the form.
+
+Importance of Form I-20
+
+The Form I-20 is an important immigration document that should be kept safe throughout a student's academic program. It is required for multiple immigration and educational processes.
+
+Paying the I-901 SEVIS Fee
+
+Students must first receive a Form I-20 before paying the mandatory I-901 Student and Exchange Visitor Information System (SEVIS) Fee.
+
+Information required to pay the fee includes:
+- Full name.
+- Address.
+- Date of birth.
+- Email address.
+- Country of birth.
+- Country of citizenship.
+- School Code listed on the Form I-20.
+- SEVIS Identification Number listed on the Form I-20.
+
+The I-901 SEVIS Fee must be paid before entering the United States.
+
+Applying for a Student Visa
+
+The Form I-20 lists the program start date.
+
+Important requirements include:
+- Students may enter the United States no earlier than 30 days before the program start date.
+- F-1 and M-1 visas may be issued up to 365 days before the program begins.
+- The visa category must match the Form I-20 (F-1 or M-1).
+- Students are generally expected to present the original Form I-20 during the visa interview.
+- In limited circumstances, a consular officer may accept a copy before the original is received.
+
+Entering the United States
+
+Students should carry the signed original Form I-20 with them when traveling.
+
+Do not pack the Form I-20 in checked luggage.
+
+At the port of entry, a U.S. Customs and Border Protection (CBP) officer may request the Form I-20.
+
+Students may enter the United States up to 30 days before the program start date shown on the Form I-20.
+
+Changing Status in the United States
+
+Individuals already in the United States under another nonimmigrant classification must obtain a Form I-20 before applying to U.S. Citizenship and Immigration Services (USCIS) to change status to F or M.
+
+Applying for Student Benefits
+
+The Form I-20 serves as proof of lawful enrollment in a U.S. educational program.
+
+It may be required when applying for benefits available to F and M students, including:
+- Driver's licenses.
+- Social Security numbers.
+- Other student-related benefits.
+
+When to Obtain a New Form I-20
+t
+A Designated School Official (DSO) may issue a new Form I-20 when:
+- The original form is lost, destroyed, or misplaced.
+- A travel endorsement is needed.
+- The student's SEVIS status changes (for example, from Initial to Active).
+- There is a significant change to student information, including:
+  - Personal information.
+  - Program of study.
+  - Optional Practical Training (OPT).
+  - Other material updates to the student's record.
+
+Redesigned Form I-20
+
+Beginning July 1, 2016, the redesigned Form I-20 became mandatory for:
+- Student visa applications.
+- Entry into the United States.
+- International travel.
+- Applications for nonimmigrant student benefits.
+
+The previous barcode version of Form I-20 is no longer valid.
+
+Designated School Officials (DSOs) were responsible for providing updated paper copies with original signatures to all F-1 and M-1 students.
