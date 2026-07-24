@@ -5,7 +5,7 @@ from uuid import uuid4
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
-from ocr import extract_text_from_pdf
+from backend.services.ocr import extract_text_from_pdf
 from services.classifier import classify_document
 from services.llm_classifier import classify_document_with_llm
 from services.llm_extractor import extract_fields_with_llm
