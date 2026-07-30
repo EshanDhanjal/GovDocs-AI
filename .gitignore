@@ -32,3 +32,6 @@ uploads/
 # macOS / Windows
 .DS_Store
 Thumbs.db
+
+# Generated RAG artifacts
+data/processed/
