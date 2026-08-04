@@ -5,22 +5,32 @@ from uuid import uuid4
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.services.ocr import extract_text_from_pdf
-from services.classifier import classify_document
-from services.llm_classifier import classify_document_with_llm
-from services.llm_extractor import extract_fields_with_llm
-from services.llm_summarizer import summarize_document_with_llm
+from backend.app.schemas.questions import QuestionRequest
+from backend.app.services.classifier import classify_document
+from backend.app.services.llm_classifier import classify_document_with_llm
+from backend.app.services.llm_extractor import extract_fields_with_llm
+from backend.app.services.llm_summarizer import summarize_document_with_llm
+from backend.app.services.ocr import extract_text_from_pdf
+from backend.app.services.rag import answer_question_with_rag
 
-app = FastAPI(title="GovDocs-AI API")
+app = FastAPI(
+    title="GovDocs-AI API",
+    description=(
+        "Local AI backend for government-document processing "
+        "and retrieval-augmented question answering."
+    ),
+    version="0.1.0",
+)
 
-UPLOAD_DIR = Path("uploads")
-UPLOAD_DIR.mkdir(exist_ok=True)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+UPLOAD_DIR = PROJECT_ROOT / "uploads"
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 ALLOWED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg"}
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Restrict this when the frontend is added.
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -28,15 +38,50 @@ app.add_middleware(
 
 
 @app.get("/")
-def health_check():
+def health_check() -> dict:
     return {
         "status": "ok",
         "message": "GovDocs-AI backend is running",
     }
 
 
+@app.post("/ask")
+def ask_question(request: QuestionRequest) -> dict:
+    try:
+        result = answer_question_with_rag(
+            question=request.question,
+            top_k=request.top_k,
+        )
+
+        return {
+            "success": True,
+            "question": request.question,
+            **result,
+        }
+
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=str(exc),
+        ) from exc
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
+
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail="The question could not be processed.",
+        ) from exc
+
+
 @app.post("/upload")
-async def upload_document(file: UploadFile = File(...)):
+async def upload_document(
+    file: UploadFile = File(...),
+) -> dict:
     original_filename = file.filename or ""
     file_extension = Path(original_filename).suffix.lower()
 
@@ -63,8 +108,7 @@ async def upload_document(file: UploadFile = File(...)):
     uploaded_at = datetime.now(timezone.utc).isoformat()
 
     try:
-        with open(file_path, "wb") as buffer:
-            buffer.write(file_bytes)
+        file_path.write_bytes(file_bytes)
     except OSError as exc:
         raise HTTPException(
             status_code=500,
@@ -75,7 +119,9 @@ async def upload_document(file: UploadFile = File(...)):
 
     if file_extension == ".pdf":
         try:
-            extracted_text = extract_text_from_pdf(str(file_path))
+            extracted_text = extract_text_from_pdf(
+                str(file_path),
+            )
         except Exception as exc:
             raise HTTPException(
                 status_code=500,
@@ -86,15 +132,21 @@ async def upload_document(file: UploadFile = File(...)):
 
     if extracted_text:
         try:
-            classification = classify_document_with_llm(extracted_text)
+            classification = classify_document_with_llm(
+                extracted_text,
+            )
         except Exception:
-            classification = classify_document(extracted_text)
+            classification = classify_document(
+                extracted_text,
+            )
 
         if (
             not classification
             or classification.get("document_type") == "UNKNOWN"
         ):
-            classification = classify_document(extracted_text)
+            classification = classify_document(
+                extracted_text,
+            )
 
     extracted_fields = None
 
