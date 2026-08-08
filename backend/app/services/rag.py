@@ -22,9 +22,32 @@ def format_context(results: list[dict]) -> str:
     return "\n\n".join(context_sections)
 
 
+def format_document_context(document_context: dict | None) -> str:
+    if not document_context:
+        return "No uploaded document context was provided."
+
+    classification = document_context.get("classification")
+    extracted_fields = document_context.get("extracted_fields")
+    summary = document_context.get("summary")
+    ocr_text = document_context.get("ocr_text", "")
+
+    return (
+        "UPLOADED DOCUMENT CONTEXT:\n\n"
+        f"Classification:\n"
+        f"{json.dumps(classification, indent=2)}\n\n"
+        f"Extracted fields:\n"
+        f"{json.dumps(extracted_fields, indent=2)}\n\n"
+        f"Document summary:\n"
+        f"{json.dumps(summary, indent=2)}\n\n"
+        f"OCR text:\n"
+        f"{ocr_text[:4000]}"
+    )
+
+
 def answer_question_with_rag(
     question: str,
     top_k: int = 5,
+    document_context: dict | None = None,
 ) -> dict:
     if not question.strip():
         raise ValueError("Question cannot be empty.")
@@ -59,6 +82,11 @@ def answer_question_with_rag(
     )
 
     prompt = prompt.replace(
+        "{{DOCUMENT_CONTEXT}}",
+        format_document_context(document_context),
+    )
+
+    prompt = prompt.replace(
         "{{CONTEXT}}",
         format_context(retrieved_sources),
     )
@@ -67,6 +95,7 @@ def answer_question_with_rag(
 
     try:
         answer = json.loads(response)
+
     except json.JSONDecodeError:
         answer = {
             "answer": (
@@ -92,7 +121,10 @@ def answer_question_with_rag(
             "url": source.get("url"),
             "similarity_score": source.get("similarity_score"),
         }
-        for index, source in enumerate(retrieved_sources, start=1)
+        for index, source in enumerate(
+            retrieved_sources,
+            start=1,
+        )
     ]
 
     return answer

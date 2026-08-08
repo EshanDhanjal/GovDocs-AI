@@ -28,9 +28,13 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 ALLOWED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg"}
 
+# Temporary in-memory document store.
+# Later this will be replaced with PostgreSQL.
+documents: dict[str, dict] = {}
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Restrict this when the frontend is added.
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -43,39 +47,6 @@ def health_check() -> dict:
         "status": "ok",
         "message": "GovDocs-AI backend is running",
     }
-
-
-@app.post("/ask")
-def ask_question(request: QuestionRequest) -> dict:
-    try:
-        result = answer_question_with_rag(
-            question=request.question,
-            top_k=request.top_k,
-        )
-
-        return {
-            "success": True,
-            "question": request.question,
-            **result,
-        }
-
-    except FileNotFoundError as exc:
-        raise HTTPException(
-            status_code=500,
-            detail=str(exc),
-        ) from exc
-
-    except ValueError as exc:
-        raise HTTPException(
-            status_code=400,
-            detail=str(exc),
-        ) from exc
-
-    except Exception as exc:
-        raise HTTPException(
-            status_code=500,
-            detail="The question could not be processed.",
-        ) from exc
 
 
 @app.post("/upload")
@@ -197,6 +168,19 @@ async def upload_document(
     else:
         processing_status = "uploaded"
 
+    documents[document_id] = {
+        "document_id": document_id,
+        "original_filename": original_filename,
+        "stored_filename": stored_filename,
+        "file_path": str(file_path),
+        "uploaded_at": uploaded_at,
+        "ocr_text": extracted_text,
+        "classification": classification,
+        "extracted_fields": extracted_fields,
+        "summary": summary,
+        "status": processing_status,
+    }
+
     return {
         "success": True,
         "message": "File uploaded and processed successfully.",
@@ -215,3 +199,68 @@ async def upload_document(
         "extracted_fields": extracted_fields,
         "summary": summary,
     }
+
+
+@app.get("/documents/{document_id}")
+def get_document(document_id: str) -> dict:
+    document = documents.get(document_id)
+
+    if not document:
+        raise HTTPException(
+            status_code=404,
+            detail="Document not found.",
+        )
+
+    return {
+        "success": True,
+        "document": document,
+    }
+
+
+@app.post("/ask")
+def ask_question(request: QuestionRequest) -> dict:
+    try:
+        document_context = None
+
+        if getattr(request, "document_id", None):
+            document_context = documents.get(request.document_id)
+
+            if not document_context:
+                raise HTTPException(
+                    status_code=404,
+                    detail="Document not found.",
+                )
+
+        result = answer_question_with_rag(
+            question=request.question,
+            top_k=request.top_k,
+            document_context=document_context,
+        )
+
+        return {
+            "success": True,
+            "question": request.question,
+            "document_id": getattr(request, "document_id", None),
+            **result,
+        }
+
+    except HTTPException:
+        raise
+
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=str(exc),
+        ) from exc
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
+
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail="The question could not be processed.",
+        ) from exc

@@ -30,6 +30,10 @@ User question:
 
 {{QUESTION}}
 
+Uploaded document context:
+
+{{DOCUMENT_CONTEXT}}
+
 Official source passages:
 
 {{CONTEXT}}
